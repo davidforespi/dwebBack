@@ -18,11 +18,16 @@ app.post('/api/login', controllers.login);
 
 /* CART */
 app.get("/api/products", controllers.getProducts);
-app.get("/api/products-cart", controllers.getProductsCart);
-app.post("/api/products-cart", controllers.addProductCart);
+app.get("/api/products-cart/", controllers.getProductsCart);
+app.get("/api/products-getUserCart/:userId", controllers.getUserCart);	
+app.delete("/api/products-emptyCart/", controllers.emptyCart);
+app.post("/api/products-addCart/:userId", controllers.addProductCart);
 app.put("/api/products-cart/:productId", controllers.putProduct);
 app.delete("/api/products-cart/:productId", controllers.deleteProduct);
 /* */
+
+
+
 const PORT = 5000;
 
 

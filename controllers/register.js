@@ -21,26 +21,6 @@ const register = async (req,res) =>{
                     });
                     newUser.save().then(async (user) =>{
                         res.json({message: 'Usuario creado'})
-                        
-                        // envío de correo electrónico
-                        const transporter = nodemailer.createTransport({
-                            host: 'smtp.gmail.com',
-                            port: 587,
-                            secure: false,
-                            auth: {
-                                user: 'davidforespi34@gmail.com',
-                                pass: 'nvoszbajsqbwegwl'
-                            }
-                        });
-
-                        const message = {
-                            from: 'davidforespi34@gmail.com',
-                            to: correo,
-                            subject: 'Registro exitoso',
-                            text: 'Gracias por registrarte en nuestro sitio'
-                        };
-
-                        await transporter.sendMail(message);
                     })
                     .catch((error) => console.error(error));
                 }
