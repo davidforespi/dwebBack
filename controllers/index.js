@@ -8,7 +8,10 @@ const putProduct = require("./PutProduct");
 const deleteProduct = require("./DeleteProduct")
 const emptyCart = require("./emptyCart");
 const getUserCart = require("./getUserCart");
-
+const recover = require("./recover");
+const editprofile = require("./editprofile");
+const pay = require('./pay');
+const deleteCartUser = require("./deleteCartUser");
 
 module.exports = {
     register,
@@ -21,4 +24,8 @@ module.exports = {
     deleteProduct,
     emptyCart,
     getUserCart,
+    recover,
+    editprofile,
+    pay,
+    deleteCartUser,
 };

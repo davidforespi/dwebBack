@@ -8,7 +8,7 @@ const getUserCart = async (req, res) => {
 
     if (userCart) {
         res.json({ userCart});
-    } else {
+    }else {
         res.json({ mensaje: "No hay productos" });
     }
 };

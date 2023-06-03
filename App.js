@@ -24,8 +24,19 @@ app.delete("/api/products-emptyCart/", controllers.emptyCart);
 app.post("/api/products-addCart/:userId", controllers.addProductCart);
 app.put("/api/products-cart/:productId", controllers.putProduct);
 app.delete("/api/products-cart/:productId", controllers.deleteProduct);
+
+/* Password Recover*/
+app.put("/api/recover", controllers.recover);
 /* */
 
+/*Edit Profile*/
+app.put("/api/editprofile/:userId", controllers.editprofile);
+/* */
+
+/*pay*/
+app.post('/api/pay/:userId', controllers.pay);
+app.delete('/api/pay-delete/:userId', controllers.deleteCartUser);
+/* */
 
 
 const PORT = 5000;

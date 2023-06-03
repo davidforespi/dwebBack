@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const user = require('../models/user');
 
 const getUserById = async (req,res) =>{
 
@@ -16,7 +15,7 @@ const getUserById = async (req,res) =>{
         
         });
     }else{
-        res.json({ mensaje: "No existe tal id" });
+        res.json({ mensaje: "No existe tal id"});
     }
 }
 
