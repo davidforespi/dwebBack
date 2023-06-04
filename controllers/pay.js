@@ -14,6 +14,7 @@ const Pay = async (req, res) => {
             const bill = new Bill({
                 user: userId,
                 username: user.nombre,
+                mail: user.correo,
                 price: price,
             });
 
@@ -31,16 +32,16 @@ const Pay = async (req, res) => {
                 doc.lineWidth(2); // Establece el ancho de línea en 2 puntos
                 doc.strokeColor('black'); // Establece el color de línea en negro
 
-                doc.fontSize(20).text('Factura', { align: 'center', bold: true});
+                doc.fontSize(20).text('Factura', { align: 'center', bold: true });
                 doc.moveDown();
-                doc.fontSize(16).text(`Factura #: ${userId}`, { bold: true});
-                doc.fontSize(16).text(`Nombre del Cliente: ${user.nombre}`, {bold: true});
-                doc.fontSize(16).text(`Correo del Cliente: ${user.correo}`, {bold: true});
-                doc.fontSize(16).text(`Fecha: ${new Date().toLocaleString()}`, {bold: true});
+                doc.fontSize(16).text(`Factura #: ${userId}`, { bold: true });
+                doc.fontSize(16).text(`Nombre del Cliente: ${user.nombre}`, { bold: true });
+                doc.fontSize(16).text(`Correo del Cliente: ${user.correo}`, { bold: true });
+                doc.fontSize(16).text(`Fecha: ${new Date().toLocaleString()}`, { bold: true });
                 doc.moveDown();
 
                 // Total de la factura
-                doc.fontSize(16).text(`Total: ${price} $`, { align: 'right', bold:true });
+                doc.fontSize(16).text(`Total: ${price} $`, { align: 'right', bold: true });
                 doc.moveDown();
 
                 doc.fontSize(16).text(`Tu satisfacción es nuestro mayor logro. Esperamos con ansias verte nuevamente en nuestro restaurante, donde la buena comida y el excelente servicio siempre te esperan con los brazos abiertos.`, { align: 'Center' });
@@ -48,8 +49,18 @@ const Pay = async (req, res) => {
 
                 doc.fontSize(16).text("¡Gracias por elegirnos!", { align: 'center' });
 
+                const date = new Date();
 
-                const filePath = './factura.pdf';
+                const formattedDate = date.toLocaleString('es-ES', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                }).replace(/\//g, '').replace(',', '_').replace(/:/g, '');
+
+                const filePath = `./Facturas/factura_${userId}_${formattedDate}.pdf`;
                 doc.pipe(fs.createWriteStream(filePath));
                 doc.end();
 
@@ -67,7 +78,13 @@ const Pay = async (req, res) => {
                     from: 'godrestaurant13@gmail.com',
                     to: user.correo,
                     subject: 'Factura',
-                    text: 'Adjuntamos la factura en formato PDF de tu compra.',
+                    text: `
+                    Hola ${user.nombre},
+                    
+                    Gracias por visitar nuestra plataforma web y por tu reciente compra queremos expresar nuestro agradecimiento y esperamos que hayas disfrutado de tu experiencia gastronómica con nosotros.
+                    En nombre de Rennala restaurant, nos esforzamos para brindar a nuestros clientes la mejor atención posible.
+                     
+                    Recuerda que estamos trabajando para mejorar nuestros menús y ofrecer lo mejor para ustes los CLIENTES.`,
                     attachments: [
                         {
                             filename: 'factura.pdf',
@@ -83,8 +100,7 @@ const Pay = async (req, res) => {
                         console.log('Correo enviado:', info.response);
                     }
 
-                    // Eliminar el archivo PDF después de enviar el correo
-                    fs.unlinkSync(filePath);
+                    
                 });
             });
         }

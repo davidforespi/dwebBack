@@ -39,6 +39,14 @@ app.delete('/api/pay-delete/:userId', controllers.deleteCartUser);
 /* */
 
 
+/* Admin */
+app.get('/api/admin/:id', controllers.getAdmins);
+app.post('/api/adminLogin', controllers.loginAdmin);
+app.get('/api/admin-payment', controllers.getPayments);
+app.put('/api/admin-payment/:invoiceId', controllers.updateInvoiceState);
+/* */
+
+
 const PORT = 5000;
 
 

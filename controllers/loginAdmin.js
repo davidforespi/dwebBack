@@ -1,11 +1,9 @@
-const User = require("../models/user");
-const Product = require("../models/Products");
-const Cart = require("../models/Cart");
+const Admin = require("../models/admin");
 
-const login = async (req, res) => {
+const loginAdmin = async (req, res) => {
   const { correo, contraseña } = req.body;
 
-  User.findOne({ correo }).then((user) => {
+  Admin.findOne({ correo }).then((user) => {
     if (!user) {
       return res.json({ mensaje: "Usuario no encontrado" });
     }
@@ -29,4 +27,4 @@ const login = async (req, res) => {
   });
 };
 
-module.exports = login;
+module.exports = loginAdmin;

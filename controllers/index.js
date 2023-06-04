@@ -12,6 +12,10 @@ const recover = require("./recover");
 const editprofile = require("./editprofile");
 const pay = require('./pay');
 const deleteCartUser = require("./deleteCartUser");
+const getAdmins = require("./getAdmins");
+const loginAdmin = require("./loginAdmin");
+const getPayments = require("./getPayments");
+const updateInvoiceState = require("./updateInvoiceState");
 
 module.exports = {
     register,
@@ -28,4 +32,8 @@ module.exports = {
     editprofile,
     pay,
     deleteCartUser,
+    getAdmins,
+    loginAdmin,
+    getPayments,
+    updateInvoiceState,
 };
