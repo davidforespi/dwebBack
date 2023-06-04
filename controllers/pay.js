@@ -69,8 +69,7 @@ const Pay = async (req, res) => {
                     // Por ejemplo, puedes utilizar Gmail SMTP
                     service: 'gmail',
                     auth: {
-                        user: 'godrestaurant13@gmail.com',
-                        pass: 'deekjduvulgzjink',
+
                     },
                 });
 
