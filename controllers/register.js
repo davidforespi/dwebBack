@@ -34,8 +34,7 @@ const sendConfirmationEmail = (correo) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'godrestaurant13@gmail.com',
-            pass: 'deekjduvulgzjink',
+
         },
     });
 
