@@ -82,8 +82,7 @@ const sendConfirmationEmail = (correo, name, filePath) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'godrestaurant13@gmail.com',
-      pass: 'deekjduvulgzjink',
+
     },
   });
 
