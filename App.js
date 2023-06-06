@@ -46,6 +46,12 @@ app.get('/api/admin-payment', controllers.getPayments);
 app.put('/api/admin-payment/:invoiceId', controllers.updateInvoiceState);
 /* */
 
+/* Cocina */
+app.get('/api/cocinero/:id', controllers.getCocinero);
+app.post('/api/cocineroLogin', controllers.loginCocinero);
+app.put('/api/cocinero-payment/:invoiceId', controllers.updateInvoiceStateCocinero);
+/* */
+
 
 const PORT = 5000;
 

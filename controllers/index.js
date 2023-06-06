@@ -16,6 +16,10 @@ const getAdmins = require("./getAdmins");
 const loginAdmin = require("./loginAdmin");
 const getPayments = require("./getPayments");
 const updateInvoiceState = require("./updateInvoiceState");
+const loginCocinero = require("./loginCocinero");
+const getCocinero = require("./getCocinero");
+const updateInvoiceStateCocinero = require("./updateStateCocinero");
+
 
 module.exports = {
     register,
@@ -36,4 +40,7 @@ module.exports = {
     loginAdmin,
     getPayments,
     updateInvoiceState,
+    loginCocinero,
+    getCocinero,
+    updateInvoiceStateCocinero,
 };

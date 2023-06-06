@@ -1,7 +1,7 @@
 const Bill = require('../models/Bill');
 const nodemailer = require('nodemailer');
 
-const updateInvoiceState = async (req, res) => {
+const updateInvoiceStateCocinero = async (req, res) => {
   const { invoiceId } = req.params;
   const { state } = req.body;
 
@@ -45,14 +45,13 @@ const sendConfirmationEmail = (correo, price) => {
     const mailOptions = {
         from: 'godrestaurant13@gmail.com',
         to: correo,
-        subject: 'Pago Confirmado',
+        subject: 'Pedido en Camino',
         text: `
         Querido Cliente,
         
-        Rennala restaurante te da las gracias por haber elegido nuestros servicios y por confiar en nosotros para tu reciente visita.
-        nos complace informarte que hemos recibido la confirmacion de tu pago total de $ ${price} Pesos.
-        En nombre de Rennala restaurante, nos esforzaremos continuamente por brindar una experiencia gastronomica excepcional, desde la calidad de nuestros platos hasta el servicio personalizado
-        Tu apoyo nos motiva a seguir mejorando cada dia.
+        Su pedido ya ha sido preparado. En unos momentos llegará a su mesa.
+        
+        Recuerde que el precio de su pedido es $ ${price} Pesos.
         
         Att,
         
@@ -70,4 +69,4 @@ const sendConfirmationEmail = (correo, price) => {
 };
 
 
-module.exports = updateInvoiceState;
+module.exports = updateInvoiceStateCocinero;
