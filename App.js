@@ -42,7 +42,7 @@ app.delete('/api/pay-delete/:userId', controllers.deleteCartUser);
 app.get('/api/admin/:id', controllers.getAdmins);
 app.post('/api/adminLogin', controllers.loginAdmin);
 app.get('/api/admin-payment', controllers.getPayments);
-app.put('/api/admin-payment/:invoiceId', controllers.updateInvoiceState);
+app.put('/api/admin-payment/:adminId/:invoiceId', controllers.updateInvoiceState);
 /* */
 
 /* Cocina */

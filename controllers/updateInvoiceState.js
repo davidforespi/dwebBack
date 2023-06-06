@@ -1,13 +1,14 @@
 const Bill = require('../models/Bill');
 const nodemailer = require('nodemailer');
-
+const Admin = require('../models/admin');
 const updateInvoiceState = async (req, res) => {
-  const { invoiceId } = req.params;
+  const { invoiceId, adminId } = req.params;
   const { state } = req.body;
 
   try {
     const invoice = await Bill.findByIdAndUpdate(invoiceId,{ state },{ new: true });
-
+    const admin = await Admin.findById(adminId);
+    await Bill.findByIdAndUpdate(invoiceId, {cajero : admin.nombre}, {new: true});
     if (!invoice) {
       return res.status(404).json({ mensaje: 'Factura no encontrada' });
     }

@@ -35,6 +35,9 @@ const updateInvoiceStateCocinero = async (req, res) => {
       doc.fontSize(16).text(`Nombre del Cliente: ${bill.username}`, { bold: true });
       doc.fontSize(16).text(`Correo del Cliente: ${bill.mail}`, { bold: true });
       doc.fontSize(16).text(`Pedido : ${bill.descripcion}`, { bold: true });
+      doc.fontSize(16).text(`Encargado de la Caja : ${bill.cajero}`, { bold: true });
+      doc.fontSize(16).text(`Cocinero : ${bill.cocinero}`, { bold: true });
+      doc.fontSize(16).text(`Pedido : ${bill.descripcion}`, { bold: true });
       doc.fontSize(16).text(`Fecha: ${new Date().toLocaleString()}`, { bold: true });
       doc.moveDown();
 
