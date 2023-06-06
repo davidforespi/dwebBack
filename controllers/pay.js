@@ -36,8 +36,7 @@ const Pay = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'godrestaurant13@gmail.com',
-        pass: 'deekjduvulgzjink',
+
       },
     });
 
