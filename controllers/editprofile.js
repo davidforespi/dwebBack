@@ -17,7 +17,7 @@ const editprofile = async (req, res) => {
             res.json({mensaje : "Las contraseñas no coinciden"});
         }
     }else{
-            res.json({mensaje : "Usuario no encontrado"});
+            res.json({mensaje : "No se pudo actualizar su perfil, intente de nuevo"});
     }
 
 

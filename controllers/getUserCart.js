@@ -7,7 +7,7 @@ const getUserCart = async (req, res) => {
     const userCart = await Cart.find({user: userId});
 
     if (userCart) {
-        res.json({ userCart});
+        res.json({ userCart });
     }else {
         res.json({ mensaje: "No hay productos" });
     }

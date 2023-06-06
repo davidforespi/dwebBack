@@ -17,7 +17,7 @@ const login = async (req, res) => {
         nombre,
       };
       res.json({
-        mensaje: "Usuario logeado correctamente",
+        mensaje: "Bienvenido de vuelta " + user.nombre,
         user: {
           id,
           nombre,

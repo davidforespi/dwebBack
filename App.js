@@ -38,7 +38,6 @@ app.post('/api/pay/:userId', controllers.pay);
 app.delete('/api/pay-delete/:userId', controllers.deleteCartUser);
 /* */
 
-
 /* Admin */
 app.get('/api/admin/:id', controllers.getAdmins);
 app.post('/api/adminLogin', controllers.loginAdmin);
@@ -49,8 +48,16 @@ app.put('/api/admin-payment/:invoiceId', controllers.updateInvoiceState);
 /* Cocina */
 app.get('/api/cocinero/:id', controllers.getCocinero);
 app.post('/api/cocineroLogin', controllers.loginCocinero);
-app.put('/api/cocinero-payment/:invoiceId', controllers.updateInvoiceStateCocinero);
+app.put('/api/cocinero-payment/:cocineroId/:invoiceId', controllers.updateInvoiceStateCocinero);
 /* */
+
+
+/* Comments */
+
+app.post('/api/comment/:userId', controllers.addComment);
+app.get('/api/get-comments/', controllers.getComments);
+
+/* */ 
 
 
 const PORT = 5000;

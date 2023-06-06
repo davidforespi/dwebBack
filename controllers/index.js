@@ -19,6 +19,8 @@ const updateInvoiceState = require("./updateInvoiceState");
 const loginCocinero = require("./loginCocinero");
 const getCocinero = require("./getCocinero");
 const updateInvoiceStateCocinero = require("./updateStateCocinero");
+const addComment = require("./addComment");
+const getComments = require("./getMensajes");
 
 
 module.exports = {
@@ -43,4 +45,7 @@ module.exports = {
     loginCocinero,
     getCocinero,
     updateInvoiceStateCocinero,
+    addComment,
+    getComments,
+
 };

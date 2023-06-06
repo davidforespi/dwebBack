@@ -5,10 +5,11 @@ const register = async (req, res) => {
     const { nombre, correo, contraseña } = req.body;
 
     User.findOne({ correo }).then((user) => {
+
         if (user) {
             return res.json({ message: 'Ya existe un usuario con ese correo' });
         } else if (!nombre || !correo || !contraseña) {
-            return res.json({ message: 'Faltan campos' });
+            return res.json({ message: 'Complete todos los campos' });
         } else {
             const newUser = new User({
                 nombre,
